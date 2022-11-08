@@ -11,7 +11,7 @@ HOW-TO:
 2. one line = one URL
 3. be careful if you have more URLs in one cell
 4. ony pure URLs, check out if there are no extra characters like ,"': etc. in front or after the URL
-5. start the twscraper.py and let it do its thing
+5. start the tw_image_scraper.py and let it do its thing
 6. check the io directory and dl directory inside it
 
 
