@@ -13,3 +13,11 @@ HOW-TO:
 4. ony pure URLs, check out if there are no extra characters like ,"': etc. in front or after the URL
 5. start the twscraper.py and let it do its thing
 6. check the io directory and dl directory inside it
+
+
+Id like to add more functions as I'll be learning more about python, ie.:
+
+1. loading URLs right from the public google spreadsheet
+2. foolproof URL loading without user having to control if provided URLs are ok
+3. extracting images from google drive
+4. better URL extracting mechanism that is independet on html class
