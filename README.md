@@ -21,3 +21,4 @@ Id like to add more functions as I'll be learning more about python, ie.:
 2. foolproof URL loading without user having to control if provided URLs are ok
 3. extracting images from google drive
 4. better URL extracting mechanism that is independent on html class
+5. web interface that can load public google spreadsheets
