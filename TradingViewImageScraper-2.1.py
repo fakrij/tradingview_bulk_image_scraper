@@ -53,12 +53,16 @@ def download(picture_urls_f, timestamp_f):
 def zip_it(picture_urls_f, timestamp_f):
     with zipfile.ZipFile(os.path.join("io", f"tw-scrape-{timestamp_f}.zip"), mode="w") as zf:
         print(f"Creating: tw-scrape-{timestamp_f}.zip")
-        for picture_url in picture_urls_f:
-            with urllib.request.urlopen(picture_url) as url:
-                image_data = url.read()
-                filename = picture_url.split("/")[-1]
-                print(f"Packing: {filename}")
-                zf.writestr(f'{filename}', image_data)
+        with open(f"tw-pic-links-{timestamp_f}.txt", "w") as f_txt:
+            for picture_url in picture_urls_f:
+                f_txt.write(picture_url + "\n")
+                with urllib.request.urlopen(picture_url) as url:
+                    image_data = url.read()
+                    filename = picture_url.split("/")[-1]
+                    print(f"Packing: {filename}")
+                    zf.writestr(f'{filename}', image_data)
+        zf.write(f"tw-pic-links-{timestamp_f}.txt")
+        os.remove(f"tw-pic-links-{timestamp_f}.txt")
 
 
 # ---------------------------------------------------------------------------------------------- FLOW
@@ -77,4 +81,4 @@ download(picture_urls, timestamp)
 
 zip_it(picture_urls, timestamp)
 
-print("Done, yay!")
+print("Done!")
