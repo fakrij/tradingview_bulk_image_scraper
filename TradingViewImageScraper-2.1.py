@@ -77,4 +77,4 @@ download(picture_urls, timestamp)
 
 zip_it(picture_urls, timestamp)
 
-print("Done!")
+print("Done, yay!")
