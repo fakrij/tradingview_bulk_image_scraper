@@ -1,11 +1,9 @@
-import pandas as pd
 from bs4 import BeautifulSoup
 import urllib.request
-import zipfile
 import os
 from datetime import datetime
-from flask import Flask, request, Response
-import requests
+from flask import Flask, request, send_file
+import shutil
 
 column_name = "links"
 sheet_url = "https://docs.google.com/spreadsheets/d/1Vf6jNCzb4e3FZLgU6ZgY-uKXLEpzBeVh2wVB0oBzh_Y/gviz/tq?tqx=out:csv"
@@ -50,10 +48,18 @@ def download(picture_urls_f, timestamp_f):
                     f.write(image_data)
 
 
-def zip_it_send_it(picture_urls_f, timestamp_f):
-    with zipfile.ZipFile(os.path.join("io", f"tw-scrape-{timestamp_f}.zip"), mode="w") as zf:
-        print(f"Creating: tw-scrape-{timestamp_f}.zip")
+@app.route("/io/tw_export_<timestamp_f>")
+def zip_it_send_it(timestamp_f):
+    print(f"Creating: tw-scrape-{timestamp_f}.zip")
+    folder_name = f"io/tw_export_{timestamp_f}"
+    zip_name = f"tw_export_{timestamp_f}.zip"
+    shutil.make_archive(folder_name, "zip", folder_name)
+    shutil.rmtree(folder_name)
+    return send_file(zip_name, as_attachment=True)
 
+
+if __name__ == "__main__":
+    app.run()
 
 # ---------------------------------------------------------------------------------------------- FLOW
 
