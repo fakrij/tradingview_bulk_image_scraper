@@ -5,13 +5,10 @@ from datetime import datetime
 from flask import Flask, request, send_file
 import shutil
 
-column_name = "links"
-sheet_url = "https://docs.google.com/spreadsheets/d/1Vf6jNCzb4e3FZLgU6ZgY-uKXLEpzBeVh2wVB0oBzh_Y/gviz/tq?tqx=out:csv"
 timestamp = (str(datetime.now()).replace(":", "-"))[:-7]
+app = Flask(__name__)
 
 # ---------------------------------------------------------------------------------------------- FUNKCE
-
-app = Flask(__name__)
 
 
 @app.route('/download', methods=['POST'])
@@ -58,9 +55,6 @@ def zip_it_send_it(timestamp_f):
     return send_file(zip_name, as_attachment=True)
 
 
-if __name__ == "__main__":
-    app.run()
-
 # ---------------------------------------------------------------------------------------------- FLOW
 
 print("Starting...")
@@ -78,3 +72,8 @@ download(picture_urls, timestamp)
 zip_it_send_it(timestamp)
 
 print("Done")
+
+app = Flask(__name__)
+
+if __name__ == "__main__":
+    app.run()
