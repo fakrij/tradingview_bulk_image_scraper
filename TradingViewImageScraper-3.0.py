@@ -30,10 +30,10 @@ def fetch_picture_urls(img_links_f):
 
 
 def download(picture_urls_f, timestamp_f):
-    folder = os.path.join(f"io/tw_export_{timestamp_f}")
+    folder = os.path.join(f"_old/io/tw_export_{timestamp_f}")
     if not os.path.exists(folder):
         os.makedirs(folder)
-    with open(os.path.join(f"io/tw_export_{timestamp_f}/tw-pic-links-{timestamp_f}.txt"), "w") as f_txt:
+    with open(os.path.join(f"_old/io/tw_export_{timestamp_f}/tw-pic-links-{timestamp_f}.txt"), "w") as f_txt:
         for picture_url in picture_urls_f:
             filename = picture_url.split("/")[-1]
             filepath = os.path.join(folder, filename)
