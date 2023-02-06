@@ -71,7 +71,7 @@ download(picture_urls, timestamp)
 
 zip_it_send_it(timestamp)
 
-print("Done")
+print("Done!")
 
 app = Flask(__name__)
 
