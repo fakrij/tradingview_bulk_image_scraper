@@ -1,6 +1,4 @@
-beautifulsoup4==4.9.0
-urllib3==1.25.10
-os
+beautifulsoup4==4.11.2
+urllib3==1.26.14
 datetime
 flask==2.2.2
-shutil
