@@ -9,7 +9,8 @@ column_name = "links"
 sheet_url = "https://docs.google.com/spreadsheets/d/1Vf6jNCzb4e3FZLgU6ZgY-uKXLEpzBeVh2wVB0oBzh_Y/gviz/tq?tqx=out:csv"
 timestamp = (str(datetime.now()).replace(":", "-"))[:-7]
 
-################################################################################################ FUNKCE
+# ---------------------------------------------------------------------------------------------- FUNKCE
+
 
 def download_data_from_column(column_name_f, sheet_url_f):
     pic_weblinks = []
@@ -36,7 +37,7 @@ def download(picture_urls_f, timestamp_f):
     folder = os.path.join(f"io/tw_export_{timestamp_f}")
     if not os.path.exists(folder):
         os.makedirs(folder)
-    #with open(f"io/tw_export_{timestamp_f}/tw-pic-links-{timestamp_f}.txt", "w") as f_txt:
+    # with open(f"io/tw_export_{timestamp_f}/tw-pic-links-{timestamp_f}.txt", "w") as f_txt:
     with open(os.path.join(f"io/tw_export_{timestamp_f}/tw-pic-links-{timestamp_f}.txt"), "w") as f_txt:
         for picture_url in picture_urls_f:
             filename = picture_url.split("/")[-1]
@@ -60,7 +61,7 @@ def zip_it(picture_urls_f, timestamp_f):
                 zf.writestr(f'{filename}', image_data)
 
 
-################################################################################################ FLOW
+# ---------------------------------------------------------------------------------------------- FLOW
 
 print("Starting...")
 
