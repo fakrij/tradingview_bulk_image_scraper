@@ -1,0 +1,22 @@
+1 Přepsat části využívající requests na urllib.request abychom nemuseli používat obě, requests má ale jednodušší kód
+2 Zkusit využít komprimaci on-the-fly bez nutnosti ukládat cokoli na lokální disk >>> pozor na velikost dat
+
+import shutil
+import urllib.request
+import io
+
+# Create a new ZIP file
+with io.BytesIO() as archive_buffer:
+    # Download and add the images to the ZIP file
+    for i in range(1, 6):
+        image_url = f'https://example.com/image{i}.jpg'
+        image_data = urllib.request.urlopen(image_url).read()
+        archive_buffer.write(image_data)
+    # Create a zip archive from the in-memory buffer
+    archive_data = shutil.make_archive(base_name='images', format='zip',root_dir=None, base_dir=None, fileobj=archive_buffer)
+    # write the archive to disk
+    with open('images.zip', 'wb') as f:
+        f.write(archive_data)
+
+3 Nestahovat celé url kvůli úspornosti na paměť, ale přepsat kód tak, aby si doplňoval jen variabilní část tzn. jen název obrázku (bez přípony) - v tuto chvíli zbytečný perfekcionismus "nice to have"
+4
