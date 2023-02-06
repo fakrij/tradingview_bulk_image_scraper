@@ -75,6 +75,6 @@ picture_urls = fetch_picture_urls(img_links)
 
 download(picture_urls, timestamp)
 
-zip_it_send_it(picture_urls, timestamp)
+zip_it_send_it(timestamp)
 
-print("Done, yay!")
+print("Done")
