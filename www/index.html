@@ -1,11 +1,27 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>File Downloader</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tradingview bulk image downloader</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <form action="https://tradingview-image-scraper.herokuapp.com/download" method="post">
-      <textarea name="urls" rows="10" cols="30"></textarea><br>
-      <input type="submit" value="Download">
+    <h1>Tradingview bulk image downloader</h1>
+    <p>
+      Just copy and paste the list of URLs from your table processor
+      (excel/google sheets, ...) and hit download.<br />
+      It can take a bit of time.
+    </p>
+    <form
+      action="https://tradingview-image-scraper.herokuapp.com/download"
+      method="post"
+    >
+      <textarea name="urls" rows="10" cols="30"></textarea><br />
+      <div class="bttn_holder">
+        <input class="bttn" type="submit" value="Download" />
+      </div>
     </form>
   </body>
 </html>

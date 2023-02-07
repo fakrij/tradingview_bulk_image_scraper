@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    height: 98vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+    border: solid 1px black;
+    margin: 10px;
+    padding: 2px;
+}
+
+
+.bttn {
+    border-radius: 3px;
+    padding: 3px 5px;
+    font-size: 16px;
+}
+
+textarea {
+    border-radius: 5px;
+    height: 60vh;
+    width: 35vh;
+    background-color: lightgray;
+}
