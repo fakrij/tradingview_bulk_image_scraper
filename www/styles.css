@@ -17,6 +17,13 @@ body {
     padding: 2px;
 }
 
+h1 {
+    padding: 3px 5px;
+}
+
+p {
+    padding: 3px 5px;
+}
 
 .bttn {
     border-radius: 3px;
