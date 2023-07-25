@@ -25,3 +25,4 @@ Id like to add more functions as I'll be learning more about python, ie.:
 
 
 v2 downloads pics from a list in public google spreadsheet and can zip files, next big thing: make it a web app
+v3 - allright, It is a working Flask web app, I just cant make it run on heroku :)
